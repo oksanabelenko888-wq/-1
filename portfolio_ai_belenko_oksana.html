@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Портфолио AI-навыков Беленко Оксаны: нейросети, промт-инжиниринг, аналитика, автоматизация и решения для бизнеса." />
+  <title>Портфолио AI-навыков — Беленко Оксана</title>
+
+  <style>
+    :root {
+      --bg: #f5f8ff;
+      --bg-deep: #edf3ff;
+      --surface: rgba(255, 255, 255, 0.76);
+      --surface-solid: #ffffff;
+      --text: #15213a;
+      --muted: #5f6f89;
+      --primary: #315fe9;
+      --primary-2: #7c4dff;
+      --cyan: #14b8d4;
+      --line: rgba(49, 95, 233, 0.16);
+      --shadow: 0 18px 50px rgba(37, 65, 142, 0.12);
+      --shadow-hover: 0 28px 70px rgba(37, 65, 142, 0.22);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 8%, rgba(49, 95, 233, 0.18), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(124, 77, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 55% 90%, rgba(20, 184, 212, 0.13), transparent 34%),
+        linear-gradient(180deg, var(--bg) 0%, #ffffff 46%, var(--bg-deep) 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      filter: blur(28px);
+      opacity: 0.45;
+      pointer-events: none;
+      animation: floatBlob 12s ease-in-out infinite alternate;
+    }
+
+    body::before {
+      top: 8%;
+      left: -150px;
+      background: rgba(49, 95, 233, 0.22);
+    }
+
+    body::after {
+      right: -140px;
+      bottom: 5%;
+      background: rgba(124, 77, 255, 0.20);
+      animation-delay: -5s;
+    }
+
+    @keyframes floatBlob {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(24px, -18px, 0) scale(1.08); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      padding-top: 14px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 32px rgba(29, 51, 108, 0.08);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 10px 22px rgba(49, 95, 233, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: color .2s ease, transform .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      align-items: center;
+      padding: 92px 0 76px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      padding: 9px 14px;
+      border: 1px solid rgba(49, 95, 233, 0.15);
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(255, 255, 255, 0.70);
+      box-shadow: 0 8px 20px rgba(49, 95, 233, 0.08);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--primary));
+      box-shadow: 0 0 0 5px rgba(20, 184, 212, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 890px;
+      font-size: clamp(48px, 7.6vw, 104px);
+      line-height: .97;
+      letter-spacing: -0.065em;
+      font-weight: 900;
+    }
+
+    .gradient-title {
+      color: transparent;
+      background:
+        linear-gradient(112deg, #13203a 5%, #315fe9 42%, #7c4dff 68%, #14b8d4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: .96;
+      filter: drop-shadow(0 12px 28px rgba(49, 95, 233, 0.12));
+    }
+
+    .hero-name {
+      display: block;
+      margin-top: 16px;
+      font-size: clamp(24px, 3vw, 42px);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      color: rgba(21, 33, 58, 0.84);
+      font-weight: 760;
+    }
+
+    .hero-copy {
+      max-width: 710px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 15px;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 14px 30px rgba(49, 95, 233, 0.26);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      border: 1px solid rgba(49, 95, 233, 0.14);
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(12px);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(49, 95, 233, 0.24);
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.67);
+      backdrop-filter: blur(22px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -40% auto auto -25%;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(49, 95, 233, 0.22), rgba(124, 77, 255, 0.08));
+      filter: blur(8px);
+    }
+
+    .panel-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-label {
+      margin: 0 0 15px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .focus-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 15px;
+      border: 1px solid rgba(49, 95, 233, 0.10);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.72);
+      font-weight: 750;
+    }
+
+    .focus-icon,
+    .card-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      color: var(--primary);
+      background: linear-gradient(135deg, rgba(49, 95, 233, .13), rgba(20, 184, 212, .13));
+    }
+
+    .focus-icon svg,
+    .card-icon svg,
+    .brand-mark svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .55fr);
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .skill-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 25px;
+      border: 1px solid rgba(49, 95, 233, 0.12);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: translateY(0);
+      transition:
+        transform .28s ease,
+        box-shadow .28s ease,
+        border-color .28s ease;
+    }
+
+    .skill-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--primary), var(--cyan));
+      opacity: .95;
+    }
+
+    .skill-card::after {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -90px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(49, 95, 233, 0.12), transparent 68%);
+      transition: transform .35s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(49, 95, 233, 0.32);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .skill-card:hover::after {
+      transform: scale(1.3) translate(-10px, 8px);
+    }
+
+    .card-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .skill-card h3 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      color: #234ed0;
+    }
+
+    .skill-card ul {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #34425b;
+      line-height: 1.55;
+    }
+
+    .skill-card li {
+      position: relative;
+      padding-left: 21px;
+    }
+
+    .skill-card li::before {
+      content: "";
+      position: absolute;
+      top: .62em;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      box-shadow: 0 0 0 4px rgba(49, 95, 233, .08);
+    }
+
+    .case-box {
+      position: relative;
+      z-index: 1;
+      margin-top: auto;
+      padding: 17px 18px;
+      border: 1px solid rgba(49, 95, 233, 0.10);
+      border-left: 4px solid var(--primary);
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(49, 95, 233, 0.08), rgba(20, 184, 212, 0.06));
+    }
+
+    .case-title {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .case-text {
+      margin: 0;
+      color: #31405d;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    .tools-shell {
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+    }
+
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tool-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 15px;
+      border: 1px solid rgba(49, 95, 233, 0.13);
+      border-radius: 999px;
+      color: #263754;
+      background: rgba(255, 255, 255, 0.80);
+      box-shadow: 0 8px 20px rgba(33, 55, 112, 0.07);
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .tool-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+    }
+
+    .tool-tag:hover {
+      transform: translateY(-3px);
+      border-color: rgba(49, 95, 233, .35);
+      box-shadow: 0 12px 24px rgba(49, 95, 233, .13);
+    }
+
+    .final-cta {
+      padding-top: 34px;
+      padding-bottom: 110px;
+    }
+
+    .cta-card {
+      position: relative;
+      padding: 46px;
+      border-radius: 30px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.17), transparent 24%),
+        linear-gradient(135deg, #1f4fd7 0%, #6546eb 58%, #0d9fb8 100%);
+      box-shadow: 0 30px 80px rgba(49, 95, 233, 0.30);
+      overflow: hidden;
+    }
+
+    .cta-card::after {
+      content: "AI";
+      position: absolute;
+      right: 28px;
+      bottom: -44px;
+      color: rgba(255,255,255,.09);
+      font-size: 180px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -.08em;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .cta-card h2 {
+      max-width: 750px;
+      color: #fff;
+    }
+
+    .cta-card p {
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    footer {
+      padding: 0 0 30px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 80px;
+      }
+
+      .hero-panel {
+        max-width: 640px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 24px), var(--container));
+      }
+
+      .topbar {
+        top: 8px;
+        padding-top: 8px;
+      }
+
+      .nav {
+        padding: 11px 13px;
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 14px;
+        font-size: 13px;
+      }
+
+      .nav-links a:nth-child(2) {
+        display: none;
+      }
+
+      .hero {
+        padding: 72px 0 48px;
+      }
+
+      h1 {
+        font-size: clamp(46px, 15vw, 72px);
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+
+      .skill-card,
+      .tools-shell {
+        padding: 22px;
+      }
+
+      .cta-card {
+        padding: 32px 24px;
+      }
+
+      .cta-card::after {
+        font-size: 120px;
+        right: 16px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .nav-links a:nth-child(1) {
+        display: none;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-panel {
+        padding: 18px;
+      }
+
+      .focus-item {
+        padding: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="brand" href="#top" aria-label="На главную">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-2 7.5V16a4 4 0 0 0 4 4h1"/>
+              <path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1 2 7.5V16a4 4 0 0 1-4 4h-1"/>
+              <path d="M12 2v20M8 9h4M12 15h4"/>
+            </svg>
+          </span>
+          <span>AI-портфолио</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#skills">Навыки</a>
+          <a href="#tools">Инструменты</a>
+          <a href="#cases">Кейсы</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">AI • Аналитика • Автоматизация</div>
+          <h1>
+            <span class="gradient-title">ПОРТФОЛИО<br>AI-навыков</span>
+            <span class="hero-name">Беленко Оксана</span>
+          </h1>
+          <p class="hero-copy">
+            Практическое применение нейросетей для финансовой аналитики, работы с текстами,
+            автоматизации процессов и создания решений для бизнеса.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#skills">Посмотреть навыки</a>
+            <a class="button button-secondary" href="#tools">Инструменты</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="Основные направления">
+          <div class="panel-content">
+            <p class="panel-label">Ключевые направления</p>
+            <div class="focus-list">
+              <div class="focus-item">
+                <span class="focus-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19V9M10 19V5M16 19v-8M22 19H2"/>
+                  </svg>
+                </span>
+                Аналитика и финансы
+              </div>
+              <div class="focus-item">
+                <span class="focus-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="3"/>
+                    <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h8"/>
+                  </svg>
+                </span>
+                Автоматизация процессов
+              </div>
+              <div class="focus-item">
+                <span class="focus-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18h6M10 22h4"/>
+                    <path d="M8.5 14.5A6 6 0 1 1 15.5 14.5c-.8.6-1.2 1.3-1.3 2.5h-4.4c-.1-1.2-.5-1.9-1.3-2.5Z"/>
+                  </svg>
+                </span>
+                Уникальные решения для бизнеса
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Компетенции</p>
+            <h2>Ключевые AI-навыки</h2>
+          </div>
+          <p class="section-intro">
+            Структурированный набор навыков с фокусом на практическую ценность,
+            понятный результат и применение в бизнес-процессах.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="card-top">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-2 7.5V16a4 4 0 0 0 4 4h1"/>
+                  <path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1 2 7.5V16a4 4 0 0 1-4 4h-1"/>
+                  <path d="M12 2v20"/>
+                </svg>
+              </span>
+              <h3>Эффективная работа с нейросетями</h3>
+            </div>
+            <ul>
+              <li>Различаю ИИ, нейросети и ChatGPT, объясняю разницу простым языком.</li>
+              <li>Подбираю подходящий AI-инструмент под конкретную бизнес-задачу.</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="card-top">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/>
+                  <path d="M7 9h.01M11 9h.01M15 9h.01M19 9h.01M8 13h.01M12 13h.01M16 13h.01M9 17h6"/>
+                </svg>
+              </span>
+              <h3>Промт-инжиниринг</h3>
+            </div>
+            <ul>
+              <li>Владею техниками: последовательные, ролевые и диалоговые промты, кастомизация под задачу.</li>
+              <li>Использую фреймворки для генерации сложных бизнес-текстов и аналитики.</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="card-top">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/>
+                </svg>
+              </span>
+              <h3>Работа с текстами и контентом</h3>
+            </div>
+            <ul>
+              <li>Автоматизация написания регламентов, писем, презентаций и аналитических записок.</li>
+              <li>Использование нейросетей для генерации контент-стратегий.</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="card-top">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"/>
+                  <path d="m7 15 4-4 3 3 5-6"/>
+                </svg>
+              </span>
+              <h3>Аналитика и финансы</h3>
+            </div>
+            <ul>
+              <li>Автоматизирую обработку выписок, подготовку финансовых моделей и анализ отчетности.</li>
+              <li>Разрабатываю дашборды и методики финансового анализа с помощью AI.</li>
+            </ul>
+            <div class="case-box">
+              <span class="case-title">Пример кейса</span>
+              <p class="case-text">Система автоматического анализа договоров и выявления рисков: до 90% кейсов закрываются без участия юриста.</p>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="card-top">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="4"/>
+                  <path d="M9 9h6v6H9zM12 2v2M12 20v2M2 12h2M20 12h2"/>
+                </svg>
+              </span>
+              <h3>Автоматизация процессов</h3>
+            </div>
+            <ul>
+              <li>Интеграция нейросетей с Google Таблицами, автоматизация расчетов и нормализация данных.</li>
+              <li>Внедрение AI-ассистентов в бизнес-процессы: финансы, HR и продажи.</li>
+            </ul>
+            <div class="case-box">
+              <span class="case-title">Пример кейса</span>
+              <p class="case-text">Скрипт для автосоздания KPI-дашбордов в Google Sheets с использованием GPT.</p>
+            </div>
+          </article>
+
+          <article class="skill-card reveal" id="cases">
+            <div class="card-top">
+              <span class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6M10 22h4"/>
+                  <path d="M8.5 14.5A6 6 0 1 1 15.5 14.5c-.8.6-1.2 1.3-1.3 2.5h-4.4c-.1-1.2-.5-1.9-1.3-2.5Z"/>
+                </svg>
+              </span>
+              <h3>Уникальные решения для бизнеса</h3>
+            </div>
+            <ul>
+              <li>Автоматизация согласования заявок через Telegram-ботов.</li>
+              <li>Построение системы «цифрового ассистента» для руководителя.</li>
+            </ul>
+            <div class="case-box">
+              <span class="case-title">Пример кейса</span>
+              <p class="case-text">Система моментальных бонусов через Telegram-бота и Google Таблицы.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Технологический стек</p>
+            <h2>Инструменты</h2>
+          </div>
+          <p class="section-intro">
+            Набор сервисов для работы с текстом, аналитикой, визуальным контентом,
+            интеграциями и автоматизацией.
+          </p>
+        </div>
+
+        <div class="tools-shell reveal">
+          <div class="tools-grid" aria-label="Список инструментов">
+            <span class="tool-tag">ChatGPT</span>
+            <span class="tool-tag">Gemini</span>
+            <span class="tool-tag">Copilot</span>
+            <span class="tool-tag">Midjourney</span>
+            <span class="tool-tag">Krea</span>
+            <span class="tool-tag">ElevenLabs</span>
+            <span class="tool-tag">Google Sheets</span>
+            <span class="tool-tag">GPT-интеграции</span>
+            <span class="tool-tag">Make</span>
+            <span class="tool-tag">Zapier</span>
+            <span class="tool-tag">Telegram-боты</span>
+            <span class="tool-tag">Custom Scripts</span>
+            <span class="tool-tag">Проверка документов</span>
+            <span class="tool-tag">Генерация подкастов</span>
+            <span class="tool-tag">Генерация изображений</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-content">
+            <p class="kicker" style="color: rgba(255,255,255,.75)">Фокус на результате</p>
+            <h2>AI как рабочий инструмент для понятных бизнес-задач</h2>
+            <p>
+              Аналитика, автоматизация и контент объединены в единую систему,
+              которая помогает экономить время и повышать качество решений.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Портфолио AI-навыков • Беленко Оксана</div>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index % 3, 2) * 90}ms`;
+      revealObserver.observe(item);
+    });
+  </script>
+</body>
+</html>
